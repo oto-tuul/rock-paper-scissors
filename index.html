@@ -53,36 +53,36 @@
             let result = playRound(playerSelection, computerSelection);
             let player = 0;
             let computer = 0;
-            let score = result.includes('win') ? `Player: ${player = player+1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer = computer+1}` : `Player: ${player = player} Computer: ${computer = computer}`);
+            let score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
+            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
             console.log(result + ' ' + score);
 
             playerSelection = prompt('What hand will you play?');
             computerSelection = computerPlay();
             result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player = player+1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer = computer+1}` : `Player: ${player = player} Computer: ${computer = computer}`);
+            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
+            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
             console.log(result + ' ' + score);
 
             playerSelection = prompt('What hand will you play?');
             computerSelection = computerPlay();
             result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player = player+1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer = computer+1}` : `Player: ${player = player} Computer: ${computer = computer}`);
+            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
+            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
             console.log(result + ' ' + score);
 
             playerSelection = prompt('What hand will you play?');
             computerSelection = computerPlay();
             result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player = player+1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer = computer+1}` : `Player: ${player = player} Computer: ${computer = computer}`);
+            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
+            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
             console.log(result + ' ' + score);
 
             playerSelection = prompt('What hand will you play?');
             computerSelection = computerPlay();
             result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player = player+1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer = computer+1}` : `Player: ${player = player} Computer: ${computer = computer}`);
+            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
+            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
             console.log(result + ' ' + score);
 
             if (player > computer) {
