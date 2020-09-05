@@ -4,6 +4,14 @@
     <meta charset="utf-8"/>
 </head>
 <body>
+    <h1>Rock Paper Scissors!</h1>
+    <p> Play a 5 round game of Rock Paper Scissors by pressing a button below.</p>
+    <button id='btnRock' >Rock</button>
+    <button id='btnPaper' >Paper</button>
+    <button id='btnScissors' >Scissors</button>
+
+    <div id ='results'></div>
+   
     <script>
         function computerPlay () {
             function getRandomInt(min, max) {
@@ -47,53 +55,70 @@
                 return 0,`It's a draw! Scissors vs Scissors.`;
             }
         }
-        function game() {
-            let playerSelection = prompt('What hand will you play?');
+        let player = 0;
+        let computer = 0;
+        let score;
+        let clickCounter = 1
+
+        function clickCount() {
+            clickCounter++
+        }
+        
+        function game(playerSelection) {  
+              
             let computerSelection = computerPlay();
             let result = playRound(playerSelection, computerSelection);
-            let player = 0;
-            let computer = 0;
-            let score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
+            if (result.includes('win')) {
+                    score = `Player: ${player += 1} Computer: ${computer}`;
+                } else if (result.includes('lose')){
+                    score = `Player: ${player} Computer: ${computer += 1}`;
+            } else if (result.includes('draw')){
+                    score = `Player: ${player} Computer: ${computer}`;
+            }
             console.log(result + ' ' + score);
 
-            playerSelection = prompt('What hand will you play?');
-            computerSelection = computerPlay();
-            result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
-            console.log(result + ' ' + score);
+            let elementExists = document.getElementById('gameResults');
+            if (elementExists) {
+                elementExists.innerText = (result + ' ' + score);
 
-            playerSelection = prompt('What hand will you play?');
-            computerSelection = computerPlay();
-            result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
-            console.log(result + ' ' + score);
+            }else {
+                const results = document.querySelector('#results');
 
-            playerSelection = prompt('What hand will you play?');
-            computerSelection = computerPlay();
-            result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
-            console.log(result + ' ' + score);
-
-            playerSelection = prompt('What hand will you play?');
-            computerSelection = computerPlay();
-            result = playRound(playerSelection, computerSelection);
-            score = result.includes('win') ? `Player: ${player += 1} Computer: ${computer = computer}` : 
-            (result.includes('lose') ? `Player: ${player = player} Computer: ${computer += 1}` : `Player: ${player = player} Computer: ${computer = computer}`);
-            console.log(result + ' ' + score);
-
-            if (player > computer) {
-                var finalResult = 'You win the game!';
-            } else if (player < computer) {
-                var finalResult = 'Game over. You lose.';
-            } else {
-                var finalResult = 'The game is a draw.';
+                const resultsPara = document.createElement("p");
+                const gameResults1 = document.createTextNode(result + ' ' + score);
+                
+                resultsPara.appendChild(gameResults1);
+                results.appendChild(resultsPara);
+                resultsPara.id = 'gameResults'
+            }
+            
+            
+            if (player == 5 || computer == 5) {
+                if (player > computer) {
+                    var finalResult = 'You win the game!';
+                } else if (player < computer) {
+                    var finalResult = 'Game over. You lose.';
+                } else {
+                    var finalResult = 'The game is a draw.';
+                }
+                console.log(finalResult + ' ' + score)
+        
+                const resultsPara2 = document.createElement("p");
+                const finalResults = document.createTextNode(finalResult + ' ' + score);
+                resultsPara2.appendChild(finalResults);
+                results.appendChild(resultsPara2);
+                player = 0;
+                computer = 0;
             }
 
-            console.log(finalResult + ' ' + score)
         }
+        
+
+        document.getElementById('btnRock').addEventListener('click', game.bind(this, 'rock'));
+        
+        document.getElementById('btnPaper').addEventListener('click', game.bind(this, 'paper'));
+       
+        document.getElementById('btnScissors').addEventListener('click', game.bind(this, 'scissors'));
+  
     </script>
 </body>
